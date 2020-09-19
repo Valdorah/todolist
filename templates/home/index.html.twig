@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home
+{% endblock %}
 
 {% block stylesheets %}
 	{{ encore_entry_link_tags('home') }}
 {% endblock %}
 
 {% block body %}
-	<div>
+	<header>
 		<h1>Todo List</h1>
-		<p class="under-construction">This website is under construction...</p>
-	</div>
+	</header>
+
+	<section class="todos">
+		{% for todo in todos %}
+			<div class="todo">
+				<h3>{{ todo.title }}</h3>
+				<div>
+					<span>{{ todo.createdAt|date("Y-m-d") }}</span>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
 {% endblock %}
 
 {% block javascripts %}

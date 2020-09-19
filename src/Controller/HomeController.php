@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Todo;
 
 class HomeController extends AbstractController
 {
@@ -12,6 +13,12 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->render('home/index.html.twig');
+        $todos = $this->getDoctrine()
+            ->getRepository(Todo::class)
+            ->findAll();
+
+        return $this->render('home/index.html.twig', [
+            'todos' => $todos
+        ]);
     }
 }
