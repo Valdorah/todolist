@@ -13,13 +13,20 @@
 	</header>
 
 	<section class="todos">
-		{% for todo in todos %}
+		<a href="/">
 			<div class="todo">
-				<h3>{{ todo.title }}</h3>
-				<div>
-					<span>{{ todo.createdAt|date("Y-m-d") }}</span>
-				</div>
+				+
 			</div>
+		</a>
+		{% for todo in todos %}
+			<a href="{{ path('todo', {id: todo.id}) }}">
+				<div class="todo">
+					<h3>{{ todo.title }}</h3>
+					<div>
+						<span>{{ todo.createdAt|date("Y-m-d") }}</span>
+					</div>
+				</div>
+			</a>
 		{% endfor %}
 	</section>
 {% endblock %}

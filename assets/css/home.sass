@@ -1,6 +1,8 @@
 @import ./_colors
 
 h1
+    background-color: $secondColor
+    margin-top: 0
     text-align: center
     font-size: 4em
 
@@ -8,9 +10,18 @@ h1
     width: 90%
     margin: auto
     display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-column-gap: 10px
-    grid-row-gap: 10px
+    grid-template-columns: repeat(3, 1fr)
+    column-gap: 50px
+    row-gap: 50px
 
-.todo
-    background-color: $todoBackgroundColor
+    .todo
+        background-color: $primaryColor
+        color: $colorText
+        padding: 10px 20px
+        border-radius: 5px
+        min-height: 100px
+    .todo:hover
+        background-color: $secondColor
+
+    a
+        text-decoration: none

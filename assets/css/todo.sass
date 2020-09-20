@@ -1,0 +1,44 @@
+@import ./_colors
+
+.todo
+    display: grid
+    width: 70%
+    background-color: $primaryColor
+    margin: 120px auto
+    border-radius: 5px
+
+    header
+        margin-top: 0
+        background-color: $secondColor
+        border-radius: 5px 5px 0px 0px
+
+        h2
+            padding-left: 20px
+
+            a
+                padding: 5px
+                border-radius: 100px
+                color: $colorText
+                text-decoration: none
+            a:hover
+                background-color: $thirdColor
+        
+    section
+        padding: 0 20px
+
+    footer
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+
+        div
+            margin: 20px 0
+            text-align: center
+
+            a
+                background-color: $secondColor
+                color: $colorText
+                text-decoration: none
+                padding: 5px 10px
+                border-radius: 5px
+            a:hover
+                background-color: $thirdColor
