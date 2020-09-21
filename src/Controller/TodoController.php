@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Todo;
 use App\Form\TodoType;
 
@@ -52,5 +54,27 @@ class TodoController extends AbstractController
         return $this->render('todo/add.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/todo/delete/{id}", name="delete-todo", requirements={"id"="\d+"})
+     */
+    public function deleteTodo(Request $request, int $id){
+        if(!$request->isXmlHttpRequest()){
+            throw new BadRequestHttpException('Bad request');
+        }
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $todo = $this->getDoctrine()
+            ->getRepository(Todo::class)
+            ->findOneById($id);
+
+        if($todo){
+            $entityManager->remove($todo);
+            $entityManager->flush();
+        }
+
+        $response = new JsonResponse(null, 204);
+        return $response;
     }
 }

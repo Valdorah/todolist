@@ -27,6 +27,7 @@ Encore
     .addEntry('home', './assets/js/home.js')
     .addEntry('todo', './assets/js/todo.js')
     .addEntry('addTodo', './assets/js/addTodo.js')
+    .addEntry('error', './assets/js/error.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

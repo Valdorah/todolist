@@ -29,8 +29,10 @@
 				<a href="/">Modify</a>
 			</div>
 			<div>
-				<a href="/">Delete</a>
+				<a id="delete-todo" data-id="{{todo.id}}" href="/">Delete</a>
+				<span id="spinner"><i class="fas fa-spinner spinner"></i></span>
 			</div>
+			<p id="delete-error">An error has occurred.</p>
 		</footer>
 	</div>
 {% endblock %}

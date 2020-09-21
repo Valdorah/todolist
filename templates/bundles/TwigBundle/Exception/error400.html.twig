@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block body %}
+    <div class="error-page">
+        <h1>Bad request...</h1>
+        <p>Something in your request is wrong.</p>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('error') }}
+{% endblock %}
