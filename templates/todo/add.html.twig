@@ -5,27 +5,43 @@
 {% endblock %}
 
 {% block stylesheets %}
-	{{ encore_entry_link_tags('todo') }}
+	{{ encore_entry_link_tags('addTodo') }}
 {% endblock %}
 
 {% block body %}
-	<div>
-		<h2>Add a todo</h2>
+	<div class="add-todo">
+		<header>
+            <h2><a href="{{ path('home') }}"><i class="fas fa-arrow-left"></i></a> Add a todo</h2>
+        </header>
 
 		{{ form_start(form) }}
-		<div class="my-custom-class-for-errors">
-			{{ form_errors(form) }}
+		<div>
+            <div class="field">
+			    {{ form_label(form.title) }}
+			    {{ form_widget(form.title) }}
+            </div>
+            <div class="form-error">
+				{{ form_errors(form.title) }}
+			</div>
 		</div>
 
-		<div class="row">
-			<div class="col">
-				{{ form_row(form.title) }}
+		<div>
+            <div class="field">
+			    {{ form_label(form.content) }}
+			    {{ form_widget(form.content) }}
+            </div>
+            <div class="form-error">
+				{{ form_errors(form.content) }}
 			</div>
-            <div class="col">
-				{{ form_row(form.content) }}
-			</div>
-            <div class="col">
-				{{ form_row(form.deadline) }}
+		</div>
+
+		<div>
+            <div class="field">
+			    {{ form_label(form.deadline) }}
+			    {{ form_widget(form.deadline) }}
+            </div>
+            <div class="form-error">
+				{{ form_errors(form.deadline) }}
 			</div>
 		</div>
 		{{ form_end(form) }}
@@ -34,5 +50,5 @@
 {% endblock %}
 
 {% block javascripts %}
-	{{ encore_entry_script_tags('todo') }}
+	{{ encore_entry_script_tags('addTodo') }}
 {% endblock %}

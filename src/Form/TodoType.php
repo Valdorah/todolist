@@ -18,11 +18,16 @@ class TodoType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('content', TextareaType::class)
-            ->add('deadline', DateType::class, [
-                'required' => false
+            ->add('content', TextareaType::class, [
+                'attr' => ['rows' => 5]
             ])
-            ->add('Add', SubmitType::class)
+            ->add('deadline', DateType::class, [
+                'required' => false,
+                'attr' => ['class' => 'date']
+            ])
+            ->add('Add', SubmitType::class, [
+                'attr' => ['class' => 'submit']
+            ])
         ;
     }
 

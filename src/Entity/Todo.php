@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\TodoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=TodoRepository::class)
  */
@@ -19,21 +21,25 @@ class Todo
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\Type("\DateTime")
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\Type("\DateTime")
      */
     private $deadline;
 
