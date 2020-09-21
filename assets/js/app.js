@@ -1,3 +1,5 @@
+require('@fortawesome/fontawesome-free/css/all.min.css')
+require('@fortawesome/fontawesome-free/js/all.js')
 /*
  * Welcome to your app's main JavaScript file!
  *

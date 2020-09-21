@@ -13,9 +13,11 @@
 	</header>
 
 	<section class="todos">
-		<a href="/">
-			<div class="todo">
-				+
+		<a href="{{ path('add-todo') }}">
+			<div class="add-todo">
+				<div>
+					<i class="fas fa-plus"></i>
+				</div>
 			</div>
 		</a>
 		{% for todo in todos %}

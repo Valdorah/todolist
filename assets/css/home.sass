@@ -14,14 +14,21 @@ h1
     column-gap: 50px
     row-gap: 50px
 
-    .todo
+    .todo, .add-todo
         background-color: $primaryColor
         color: $colorText
         padding: 10px 20px
         border-radius: 5px
         min-height: 100px
-    .todo:hover
+    .todo:hover, .add-todo:hover
         background-color: $secondColor
+    
+    .add-todo
+        font-size: 3em
+        display: flex
+        flex-direction: column
+        justify-content: center
+        text-align: center
 
     a
         text-decoration: none

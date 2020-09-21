@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Add a todo
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('todo') }}
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h2>Add a todo</h2>
+
+		{{ form_start(form) }}
+		<div class="my-custom-class-for-errors">
+			{{ form_errors(form) }}
+		</div>
+
+		<div class="row">
+			<div class="col">
+				{{ form_row(form.title) }}
+			</div>
+            <div class="col">
+				{{ form_row(form.content) }}
+			</div>
+            <div class="col">
+				{{ form_row(form.deadline) }}
+			</div>
+		</div>
+		{{ form_end(form) }}
+
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('todo') }}
+{% endblock %}
