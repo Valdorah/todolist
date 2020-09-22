@@ -25,7 +25,9 @@
 				<div class="todo">
 					<h3>{{ todo.title }}</h3>
 					<div>
-						<span>{{ todo.createdAt|date("Y-m-d") }}</span>
+						{% if todo.deadline is not null %}
+							<span><i class="fas fa-calendar-times"></i> {{ todo.deadline|date("Y-m-d") }}</span>
+						{% endif %}
 					</div>
 				</div>
 			</a>

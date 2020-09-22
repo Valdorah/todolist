@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Todo;
 use App\Form\TodoType;
@@ -76,5 +77,34 @@ class TodoController extends AbstractController
 
         $response = new JsonResponse(null, 204);
         return $response;
+    }
+
+    /**
+     * @Route("/todo/modify/{id}", name="modify-todo", requirements={"id"="\d+"})
+     */
+    public function modifyTodo(Request $request, int $id){
+        $entityManager = $this->getDoctrine()->getManager();
+        
+        $todo = $entityManager->getRepository(Todo::class)->findOneById($id);
+
+        if(!$todo){
+            throw $this->createNotFoundException("No todo find with id : $id.");
+        }
+        
+        $form = $this->createForm(TodoType::class, $todo);
+        
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $todo = $form->getData();
+            
+            $entityManager->persist($todo);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('todo', ['id' => $id]);
+        }
+
+        return $this->render('todo/modify.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

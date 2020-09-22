@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
         $todos = $this->getDoctrine()
             ->getRepository(Todo::class)
-            ->findAll();
+            ->findBy([], ['deadline' => 'asc']);
 
         return $this->render('home/index.html.twig', [
             'todos' => $todos

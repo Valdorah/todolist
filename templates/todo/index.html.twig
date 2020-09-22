@@ -16,17 +16,15 @@
 
 		<section>
 			<p>{{todo.content}}</p>
-			<span>Created at :
-				{{todo.createdAt|date("Y-m-d")}}</span>
+			<p><i class="fas fa-calendar-alt"></i> {{todo.createdAt|date("Y-m-d")}}</p>
 			{% if todo.deadline %}
-				<span>Deadline :
-					{{todo.deadline|date("Y-m-d")}}</span>
+				<p><i class="fas fa-calendar-times"></i> {{todo.deadline|date("Y-m-d")}}</p>
 			{% endif %}
 		</section>
 
 		<footer>
 			<div>
-				<a href="/">Modify</a>
+				<a href="{{ path('modify-todo', {id: todo.id}) }}">Modify</a>
 			</div>
 			<div>
 				<a id="delete-todo" data-id="{{todo.id}}" href="/">Delete</a>
