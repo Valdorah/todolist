@@ -13,9 +13,11 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
+
         $todos = $this->getDoctrine()
             ->getRepository(Todo::class)
-            ->findBy([], ['deadline' => 'asc']);
+            ->findBy(['author' => $user->getId()], ['deadline' => 'asc']);
 
         return $this->render('home/index.html.twig', [
             'todos' => $todos

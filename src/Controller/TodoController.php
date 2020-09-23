@@ -42,8 +42,10 @@ class TodoController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $todo = $form->getData();
+            $user = $this->getUser();
 
             $todo->setCreatedAt(new \DateTime());
+            $todo->setAuthor($user);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($todo);

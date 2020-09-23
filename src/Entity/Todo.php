@@ -43,6 +43,12 @@ class Todo
      */
     private $deadline;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="todos")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +98,18 @@ class Todo
     public function setDeadline(?\DateTimeInterface $deadline): self
     {
         $this->deadline = $deadline;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
