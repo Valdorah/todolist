@@ -25,11 +25,18 @@
 
         <div>
             <div class="field">
-			    {{ form_label(registrationForm.password) }}
-			    {{ form_widget(registrationForm.password) }}
+			    {{ form_label(registrationForm.password.first) }}
+			    {{ form_widget(registrationForm.password.first) }}
+            </div>
+        </div>
+		<div>
+            <div class="field">
+			    {{ form_label(registrationForm.password.second) }}
+			    {{ form_widget(registrationForm.password.second) }}
             </div>
             <div class="form-error">
-				{{ form_errors(registrationForm.password) }}
+				{{ form_errors(registrationForm.password.first) }}
+				{{ form_errors(registrationForm.password.second) }}
 			</div>
         </div>
 		{{ form_end(registrationForm) }}
