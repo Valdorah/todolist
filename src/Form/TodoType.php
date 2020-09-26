@@ -25,7 +25,7 @@ class TodoType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'date']
             ])
-            ->add('Add', SubmitType::class, [
+            ->add('Modify', SubmitType::class, [
                 'attr' => ['class' => 'submit']
             ])
         ;

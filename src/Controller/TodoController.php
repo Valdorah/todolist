@@ -107,6 +107,7 @@ class TodoController extends AbstractController
 
         return $this->render('todo/modify.html.twig', [
             'form' => $form->createView(),
+            'todo' => $todo
         ]);
     }
 }

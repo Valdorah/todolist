@@ -1,8 +1,27 @@
 @import ./_colors
 @import ./_fonts
-    
+
 body
     margin: 0
     background-color: $backgroundColor
     color: $colorText
     font-family: $primaryFont
+
+    nav
+        display: grid
+        grid-template-columns: 1fr 6fr 1fr
+        background-color: $secondColor
+        text-align: center
+        font-size: 40px
+        margin-bottom: 20px
+
+        div
+            display: flex
+            flex-direction: column
+            justify-content: center
+            a
+                color: $colorText
+                font-size: 0.7em
+
+        h1
+            margin: 0

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('formTodo') }}
+{% endblock %}
+
+{% block body %}
+    <div class="add-todo">
+		<header>
+            <h2><a href="{{ path('app_login') }}"><i class="fas fa-arrow-left"></i></a> Register</h2>
+        </header>
+
+		{{ form_start(registrationForm) }}
+		<div>
+            <div class="field">
+			    {{ form_label(registrationForm.username) }}
+			    {{ form_widget(registrationForm.username) }}
+            </div>
+            <div class="form-error">
+				{{ form_errors(registrationForm.username) }}
+			</div>
+		</div>
+
+        <div>
+            <div class="field">
+			    {{ form_label(registrationForm.password) }}
+			    {{ form_widget(registrationForm.password) }}
+            </div>
+            <div class="form-error">
+				{{ form_errors(registrationForm.password) }}
+			</div>
+        </div>
+		{{ form_end(registrationForm) }}
+
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('formTodo') }}
+{% endblock %}

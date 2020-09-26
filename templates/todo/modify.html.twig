@@ -11,7 +11,7 @@
 {% block body %}
 	<div class="add-todo">
 		<header>
-            <h2><a href="{{ path('home') }}"><i class="fas fa-arrow-left"></i></a> Modify a todo</h2>
+            <h2><a href="{{ path('todo', {id: todo.id}) }}"><i class="fas fa-arrow-left"></i></a> Modify a todo</h2>
         </header>
 
 		{{ form_start(form) }}
